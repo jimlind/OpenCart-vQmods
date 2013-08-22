@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Expand Modal Height</id>
+	<version>1.1.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+    <file name="admin/view/template/common/filemanager.tpl">
+        <operation error="abort">
+            <search position="after"><![CDATA[
+                #column-left {
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 600px !important;
+            ]]></add>
+        </operation>
+        <operation error="abort">
+            <search position="after"><![CDATA[
+                #column-right {
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 600px !important;
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file name="admin/view/template/catalog/category_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>   
+
+    <file name="admin/view/template/catalog/manufacturer_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file name="admin/view/template/catalog/option_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+    <file name="admin/view/template/catalog/product_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+    <file name="admin/view/template/design/banner_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+    <file name="admin/view/template/sale/voucher_theme_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+    <file name="admin/view/template/setting/setting.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+    <file name="admin/view/template/setting/store_form.tpl">
+        <operation error="abort">
+            <search position="replace"><![CDATA[
+                height: 400,
+            ]]></search>
+            <add trim="true"><![CDATA[
+                height: 700,
+            ]]></add>
+        </operation>
+    </file>
+
+</modification>

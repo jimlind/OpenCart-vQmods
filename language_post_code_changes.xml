@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Customization to Post Code Language</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file path="catalog/language/english/checkout/" name="cart.php,checkout.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		'Post Code:'
+        	]]></search>
+            <add trim="true"><![CDATA[
+				'ZIP Code:'
+          	]]></add>
+        </operation>
+	</file>
+
+	<file path="catalog/language/english/account/" name="address.php,register.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		'Post Code:'
+        	]]></search>
+            <add trim="true"><![CDATA[
+				'ZIP Code:'
+          	]]></add>
+        </operation>
+	</file>
+
+	<file path="catalog/language/english/affiliate/" name="edit.php,register.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		'Post Code:'
+        	]]></search>
+            <add trim="true"><![CDATA[
+				'ZIP Code:'
+          	]]></add>
+        </operation>
+	</file>
+
+</modification>

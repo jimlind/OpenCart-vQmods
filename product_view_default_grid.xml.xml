@@ -1,0 +1,20 @@
+<modification>
+
+    <id>Product view defaults to grid view</id>
+    <version>1.0.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+	<!-- Checkout Templates -->
+	<file path="catalog/view/theme/default/template/product/" name="category.tpl,manufacturer_info.tpl,search.tpl,special.tpl">
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		display('list');
+        	]]></search>
+			<add trim="true"><![CDATA[
+        		display('grid');
+        	]]></add>
+        </operation>
+	</file>
+
+</modification>

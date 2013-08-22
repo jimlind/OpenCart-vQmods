@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Hide the useless UPC style inputs on admin.</id>
+	<version>1.0.1</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				<td><?php echo $entry_sku; ?></td>
+			]]></search>
+			<add><![CDATA[
+				<?php /*
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation>
+			<search position="replace"><![CDATA[
+				<td><input type="text" name="location" value="<?php echo $location; ?>" /></td>
+			]]></search>
+			<add><![CDATA[
+				*/ ?>
+			]]></add>
+		</operation>
+	</file>
+	
+	
+</modification>

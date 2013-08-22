@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Add Compulsion Branding Images to Invoice</id>
+	<version>1.1.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="admin/view/template/sale/order_invoice.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				<?php echo $order['store_name']; ?>
+			]]></search>
+			<add><![CDATA[
+				<img height="125" width="90" src="/image/data/compulsion_logos/invoice_logo.png" style="float:left;">
+				<img height="36" width="200" src="/image/data/compulsion_logos/invoice_title.png">
+				<br />
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/default/template/mail/order.tpl">
+		<operation>
+			<search position="replace"><![CDATA[
+				<div style="width: 680px;"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
+			]]></search>
+			<add><![CDATA[
+				<div style="width: 680px;"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="http://www.compulsioncycles.com/pix/email-logo.jpg" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
+			]]></add>
+		</operation>
+	</file>
+	
+	
+</modification>

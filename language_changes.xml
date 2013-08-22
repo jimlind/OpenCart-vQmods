@@ -1,0 +1,19 @@
+<modification>
+
+	<id>Customizations for Compulsion Cycles</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="catalog/language/english/product/product.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_model']        = 'Product Code:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_model']        = 'Model:';
+          	]]></add>
+        </operation>
+	</file>
+
+</modification>

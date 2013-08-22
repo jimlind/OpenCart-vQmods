@@ -1,0 +1,35 @@
+<modification>
+
+    <id>Use only VARIABLE REGULAR shipping for calculations</id>
+    <version>1.0.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+    <file name="catalog/model/shipping/usps.php">
+
+        <!-- Add functionality that calculates which Flat Rate Boxes are usable. -->
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	// Prevent common size mismatch error
+            ]]></search>
+            <add trim="true"><![CDATA[
+                $xml .=	'<Container>VARIABLE</Container>';
+				$xml .=	'<Size>REGULAR</Size>';
+				/*
+            ]]></add>
+        </operation>
+
+        <!-- Add trackable text to applicable shippers -->
+        <!-- Rebuild shipping rate finding logic -->
+        <!-- Start Comment -->
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	// Calculate girth based on usps calculation
+            ]]></search>
+            <add trim="true"><![CDATA[
+				*/
+            ]]></add>
+        </operation>
+
+    </file>
+</modification>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Month/Date/Year is preferred by US Citizens.</id>
+    <version>1.0.2</version>
+    <vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="catalog/language/english/english.php">
+		<operation error="abort">
+			<search position="replace"><![CDATA[
+				'd/m/Y';
+			]]></search>
+            <add trim="true"><![CDATA[
+        		$_['date_format_short'] = 'n/d/Y';
+          	]]></add>
+        </operation>
+		<operation error="abort">
+			<search position="replace"><![CDATA[
+				'l dS F Y';
+			]]></search>
+            <add trim="true"><![CDATA[
+        		$_['date_format_long'] = 'l, F dS Y';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/english.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		'd/m/Y';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['date_format_short'] = 'n/d/Y';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		'l dS F Y';
+        	]]></search>
+            <add trim="true"><![CDATA[
+        		$_['date_format_long'] = 'l, F dS Y';
+          	]]></add>
+        </operation>
+	</file>
+
+</modification>

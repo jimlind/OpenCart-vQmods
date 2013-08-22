@@ -1,0 +1,19 @@
+<modification>
+
+    <id>Widen Admin Product Search</id>
+    <version>1.0.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+	<file name="admin/model/catalog/product.php">
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$sql .= " AND pd.name LIKE '" . $this->db->escape($data['filter_name']) . "%'";
+        	]]></search>
+			<add trim="true"><![CDATA[
+        		$sql .= " AND pd.name LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
+        	]]></add>
+        </operation>
+	</file>
+
+</modification>

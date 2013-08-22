@@ -1,0 +1,122 @@
+<modification>
+
+    <id>Remove options for USPS flat rate boxes that are invalid</id>
+    <version>1.1.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+    <file name="catalog/model/shipping/usps.php">
+
+        <!-- Add functionality that calculates which Flat Rate Boxes are usable. -->
+        <operation error="abort">
+            <search position="after"><![CDATA[
+            	if ($rate_response || $intl_rate_response) {
+            ]]></search>
+            <add trim="true"><![CDATA[
+                //get cart cubic space (assuming your default measurements are Inches and Pounds!)...
+                $cubic = 0;
+                foreach ($this->cart->getProducts() as $product) {
+                    $cubic += ($product['length'] * $product['width'] * $product['height']) * $product['quantity'];
+                }
+
+                //figure out what the best flat rate box option is (This is done in Inches)
+                $flbox = 0;//figure out what the best flat rate box option is
+                if ($cubic < 75.33) {
+                    $flbox = 1;     //Small Flat Rate Disable Check
+                } else if ($cubic < 514.25) {
+                    $flbox = 2;     //Med Flat Rate Disable Check
+                } else if($cubic < 792) {
+                    $flbox = 3;     //Large Flat Rate Disable Check
+                }
+            ]]></add>
+        </operation>
+
+        <!-- Add trackable text to applicable shippers -->
+        <!-- Rebuild shipping rate finding logic -->
+        <!-- Start Comment -->
+        <operation error="abort">
+            <search position="after"><![CDATA[
+            	$classid = $postage->getAttribute('CLASSID');
+            ]]></search>
+            <add trim="true"><![CDATA[
+                if (($flbox != 1 && $classid == 28) || ($flbox != 2 && $classid == 17) || ($flbox != 3 && $classid == 22)) {
+                    continue;
+                }		
+
+                if (in_array($classid, $allowed)) {
+                    $mailservice = $postage->getElementsByTagName('MailService')->item(0)->nodeValue;
+                    $title = $mailservice;
+                    if ($classid == '0') {
+                        foreach ($firstclasses as $index => $firstclass) {
+                            if ($firstclass == $mailservice) {
+                                $classid .= $index;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (($this->config->get('usps_domestic_' . $classid))) {
+                        $cost = $postage->getElementsByTagName('Rate')->item(0)->nodeValue;
+
+                        $quote_data[$classid] = array(
+                            'code'         => 'usps.' . $classid,
+                            'title'        => $title,
+                            'cost'         => $this->currency->convert($cost, 'USD', $this->config->get('config_currency')),
+                            'tax_class_id' => $this->config->get('usps_tax_class_id'),
+                            'text'         => $this->currency->format($this->tax->calculate($this->currency->convert($cost, 'USD', $this->currency->getCode()), $this->config->get('usps_tax_class_id'), $this->config->get('config_tax')), $this->currency->getCode(), 1.0000000)
+                        );
+                    }
+                }
+                }
+                } else {
+                /*
+            ]]></add>
+        </operation>
+        
+        <!-- End Comment -->
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	$error = $package->getElementsByTagName('Error')->item(0);
+            ]]></search>
+            <add trim="true"><![CDATA[
+                */
+            ]]></add>
+        </operation>
+        
+        <!-- Disable incorrect International Flat Rate Boxes -->
+        <operation error="abort">
+            <search position="after"><![CDATA[
+            	$cost = $service->getElementsByTagName('Postage')->item(0)->nodeValue;
+            ]]></search>
+            <add trim="true"><![CDATA[
+            	if ($cost < 4.90) {
+                    $cost = 4.90;
+                }
+            ]]></add>
+        </operation>
+               
+        <!-- Add trackable status to title for International shipments -->
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	$cost = $service->getElementsByTagName('Postage')->item(0)->nodeValue;
+            ]]></search>
+            <add trim="true"><![CDATA[
+                if (($flbox != 1 && $id == 16) || ($flbox != 2 && $classid == 9) || ($flbox != 3 && $classid == 11)) {
+                    continue;
+                }
+            ]]></add>
+        </operation>
+        
+        <!-- International shipments have a minimum cost -->
+        <operation error="abort">
+            <search position="after"><![CDATA[
+            	$cost = $service->getElementsByTagName('Postage')->item(0)->nodeValue;
+            ]]></search>
+            <add trim="true"><![CDATA[
+            	if ($cost < 4.90) {
+                    $cost = 4.90;
+                }
+            ]]></add>
+        </operation>
+    </file>
+</modification>

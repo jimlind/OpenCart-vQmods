@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Remove "Powered By OpenCart" language</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="catalog/language/english/common/footer.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				Powered By <a href="http://www.opencart.com">OpenCart</a><br />
+			]]></search>
+			<add><![CDATA[ ]]></add>
+		</operation>
+	</file>
+	
+</modification>

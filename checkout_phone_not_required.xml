@@ -1,0 +1,30 @@
+<modification>
+
+    <id>Don't require a phone for checkout.</id>
+    <version>1.0.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+	<!-- Checkout Templates -->
+	<file path="catalog/view/theme/default/template/checkout/" name="guest.tpl,register.tpl">
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		<span class="required">*</span> <?php echo $entry_telephone; ?>
+        	]]></search>
+			<add trim="true"><![CDATA[
+        		<?php echo $entry_telephone; ?>
+        	]]></add>
+        </operation>
+	</file>
+
+	<!-- Checkout Controllers -->
+	<file path="catalog/controller/checkout/" name="guest.php,register.php">
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$json['error']['telephone'] = $this->language->get('error_telephone');
+        	]]></search>
+			<add />
+        </operation>
+	</file>
+
+</modification>

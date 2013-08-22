@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Customization to Payment and Shipping Language</id>
+	<version>1.0.2</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="catalog/language/english/payment/cheque.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_title']       = 'Cheque / Money Order Instructions';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_title']       = 'Check / Money Order Instructions';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_instruction'] = 'Cheque / Money Order';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_instruction'] = 'Check / Money Order';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/payment/cheque.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['heading_title']      = 'Cheque / Money Order';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['heading_title']      = 'Check / Money Order';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_success']       = 'Success: You have modified cheque / money order account details!';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_success']       = 'Success: You have modified check / money order account details!';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['error_permission']   = 'Warning: You do not have permission to modify payment cheque / money order!';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['error_permission']   = 'Warning: You do not have permission to modify payment check / money order!';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/sale/affiliate.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_cheque']               = 'Cheque';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_cheque']               = 'Check';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['entry_cheque']              = 'Cheque Payee Name:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_cheque']              = 'Check Payee Name:';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/english/affiliate/payment.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_cheque']               = 'Cheque';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_cheque']               = 'Check';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['entry_cheque']              = 'Cheque Payee Name:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_cheque']              = 'Check Payee Name:';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/english/affiliate/register.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_cheque']               = 'Cheque';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_cheque']               = 'Check';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['entry_cheque']              = 'Cheque Payee Name:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_cheque']              = 'Check Payee Name:';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/english/payment/cod.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_title'] = 'Cash On Delivery';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_title'] = 'Pay In Store';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/english/payment/pp_pro.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_title']           = 'Credit or Debit Card (Processed securely by PayPal)';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_title']           = 'Credit Card';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/language/english/shipping/pickup.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_description'] = 'Pickup From Store';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_description'] = 'Pick Up In Store';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/sale/affiliate.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone']                = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone']                = 'State:';
+          	]]></add>
+        </operation>
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['error_zone']                = 'Please select a region / state!';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['error_zone']                = 'Please select a State!';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/sale/customer.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone']            = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone']            = 'State:';
+          	]]></add>
+        </operation>
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['error_zone']            = 'Please select a region / state!';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['error_zone']            = 'Please select a State!';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/sale/order.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_zone']                               = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_zone']                               = 'State:';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_zone_code']                          = 'Region / State Code:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_zone_code']                          = 'State Code:';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_ip_region']                          = 'IP Region:<br /><span class="help">Estimated State/Region of the IP address.</span>';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_ip_region']                          = 'IP State:<br /><span class="help">Estimated State of the IP address.</span>';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+				$_['text_ip_region_confidence']               = 'IP Region Confidence:<br /><span class="help">Representing our confidence that the region location is correct.</span>';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['text_ip_region_confidence']               = 'IP State Confidence:<br /><span class="help">Representing our confidence that the State is correct.</span>';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['text_ip_region_name']                     = 'IP Region Name:<br /><span class="help">Estimated Region name of the IP address.</span>';
+        	]]></search>
+            <add trim="true"><![CDATA[
+        		$_['text_ip_region_name']                     = 'IP State Name:<br /><span class="help">Estimated State name of the IP address.</span>';
+          	]]></add>
+        </operation>
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone']                              = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone']                              = 'State:';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone_code']                         = 'Region / State Code:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone_code']                         = 'State Code:';
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['error_zone']                              = 'Please select a region / state!';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['error_zone']                              = 'Please select a State!';
+          	]]></add>
+        </operation>
+
+
+	</file>
+
+	<file name="admin/language/english/setting/setting.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone']                   = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone']                   = 'State:';
+          	]]></add>
+        </operation>
+	</file>
+
+	<file name="admin/language/english/setting/store.php">
+        <operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$_['entry_zone']                   = 'Region / State:';
+        	]]></search>
+            <add trim="true"><![CDATA[
+				$_['entry_zone']                   = 'State:';
+          	]]></add>
+        </operation>
+	</file>
+
+</modification>

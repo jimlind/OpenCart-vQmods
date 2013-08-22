@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Only Show Latest Products With Images</id>
+    <version>2.0.0</version>
+	<vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+	
+	<file name="catalog/controller/module/latest.php">
+        <operation error="abort">
+            <search position="after"><![CDATA[
+				'sort'  => 'p.date_added',
+            ]]></search>
+            <add trim="true"><![CDATA[
+                'with_images' => true,
+            ]]></add>
+        </operation>
+    </file>
+	
+    <file name="catalog/model/catalog/product.php">
+        <operation error="abort">
+            <search position="before"><![CDATA[
+				$sql .= " GROUP BY p.product_id";
+            ]]></search>
+            <add trim="true"><![CDATA[
+            	if (isset($data['with_images']) && ($data['with_images'] == true)) {
+                	$sql .= " AND p.image <> ''";
+                }
+            ]]></add>
+        </operation>
+    </file>
+	
+</modification>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>City/State/Zip formatting is preferred by US Citizens.</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file name="catalog/view/theme/default/template/account/address_form.tpl">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<span class="error"><?php echo $error_country; ?></span>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<?php } ?></td>
+          		</tr>
+          		<?php /*
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="before"><![CDATA[
+        		<td><?php echo $entry_default; ?></td>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	*/ ?>
+            	<tr>
+          	]]></add>
+        </operation>
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	<td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+            ]]></search>
+            <add trim="true"><![CDATA[
+          		<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+          		<td><select name="zone_id"></select>
+            		<?php if ($error_zone) { ?>
+            		<span class="error"><?php echo $error_zone; ?></span>
+            		<?php } ?>
+            	</td>
+        		</tr>
+            	<tr>
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/view/theme/default/template/account/register.tpl">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<span class="error"><?php echo $error_country; ?></span>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<?php } ?></td>
+          		</tr>
+          		<?php /*
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="before"><![CDATA[
+        		<h2><?php echo $text_your_password; ?></h2>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	*/ ?>
+            	</table>
+            	</div>
+          	]]></add>
+        </operation>
+        <operation error="abort">
+            <search position="before"><![CDATA[
+            	<td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+            ]]></search>
+            <add trim="true"><![CDATA[
+            	<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+            	<td><select name="zone_id"></select>
+            		<?php if ($error_zone) { ?>
+            		<span class="error"><?php echo $error_zone; ?></span>
+            		<?php } ?>
+            	</td>
+            	</tr>
+            	<tr>
+            ]]></add>
+        </operation>
+	</file>
+
+	<file path="catalog/view/theme/default/template/checkout/" name="payment_address.tpl,shipping_address.tpl">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<?php } ?>
+          		<?php } ?>
+          		<?php /*
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<td><select name="zone_id" class="large-field">
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	*/ ?>
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<td><input type="text" name="city" value="" class="large-field" /></td>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	</tr>
+            	<tr>
+            	<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+      			<td><select name="zone_id" class="large-field">
+        		</select></td>
+          	]]></add>
+        </operation>
+    </file>
+    
+	<file name="catalog/view/theme/default/template/checkout/guest.tpl">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<?php } ?>
+          		<?php } ?>
+          		<?php /*
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<select name="zone_id" class="large-field">
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	*/ ?>
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<input type="text" name="city" value="<?php echo $city; ?>" class="large-field" />
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<br />
+				<br />
+				<span class="required">*</span> <?php echo $entry_zone; ?><br />
+				<select name="zone_id" class="large-field">
+				</select>
+          	]]></add>
+        </operation>
+    </file>
+
+	<file path="catalog/view/theme/default/template/checkout/" name="guest_shipping.tpl">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	<?php } ?>
+          		<?php } ?>
+          		<?php /*
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<td><select name="zone_id" class="large-field">
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	*/ ?>
+          	]]></add>
+        </operation>
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		<td><input type="text" name="city" value="<?php echo $city; ?>" class="large-field" /></td>
+        	]]></search>
+            <add trim="true"><![CDATA[
+            	</tr>
+            	<tr>
+            	<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+      			<td><select name="zone_id" class="large-field">
+        		</select></td>
+          	]]></add>
+        </operation>
+    </file>
+
+</modification>

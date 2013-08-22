@@ -1,0 +1,55 @@
+<modification>
+
+	<id>Add model back to products list view</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.2</vqmver>
+	<author>jimlind</author>
+
+	<file path="catalog/controller/product/" name="category.php,search.php">
+        <operation error="abort">
+        	<search position="after"><![CDATA[
+        		'name'        => $result['name'],
+        	]]></search>
+            <add trim="true"><![CDATA[
+				'model'       => $result['model'],
+          	]]></add>
+        </operation>
+	</file>
+
+	<file path="catalog/view/theme/default/template/product/" name="category.tpl,search.tpl">
+		<operation error="abort">
+			<search position="replace"><![CDATA[
+        		<div class="description"><?php echo $product['description']; ?></div>
+        	]]></search>
+            <add trim="true"><![CDATA[
+				<div class="description">
+					<strong><?php echo $product['model']; ?></strong>
+					<div><?php echo $product['description']; ?></div>
+				</div>
+          	]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/default/template/common/header.tpl">
+		<operation error="abort">
+			<search position="after"><![CDATA[
+        		<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
+			]]></search>
+			<add trim="true"><![CDATA[
+				<style>
+					.product-grid .description {
+						display: block;
+					}
+					.product-grid .description strong {
+						font-weight: normal;
+					}
+					.product-grid .description div {
+						display: none;
+					}
+					
+				</style>
+          	]]></add>
+		</operation>
+	</file>
+       
+</modification>
