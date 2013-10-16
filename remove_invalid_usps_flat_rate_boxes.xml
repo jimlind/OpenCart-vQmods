@@ -41,7 +41,7 @@
             <add trim="true"><![CDATA[
                 if (($flbox != 1 && $classid == 28) || ($flbox != 2 && $classid == 17) || ($flbox != 3 && $classid == 22)) {
                     continue;
-                }		
+                }
 
                 if (in_array($classid, $allowed)) {
                     $mailservice = $postage->getElementsByTagName('MailService')->item(0)->nodeValue;
@@ -72,7 +72,7 @@
                 /*
             ]]></add>
         </operation>
-        
+
         <!-- End Comment -->
         <operation error="abort">
             <search position="before"><![CDATA[
@@ -82,7 +82,7 @@
                 */
             ]]></add>
         </operation>
-        
+
         <!-- Disable incorrect International Flat Rate Boxes -->
         <operation error="abort">
             <search position="after"><![CDATA[
@@ -94,7 +94,7 @@
                 }
             ]]></add>
         </operation>
-               
+
         <!-- Add trackable status to title for International shipments -->
         <operation error="abort">
             <search position="before"><![CDATA[
@@ -106,7 +106,7 @@
                 }
             ]]></add>
         </operation>
-        
+
         <!-- International shipments have a minimum cost -->
         <operation error="abort">
             <search position="after"><![CDATA[
