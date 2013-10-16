@@ -1,0 +1,22 @@
+<modification>
+
+    <id>Remove left over trademark and registered super scripts</id>
+    <version>1.0.0</version>
+    <vqmver>2.3.2</vqmver>
+    <author>jimlind</author>
+
+    <file name="catalog/model/shipping/usps.php">
+
+		<operation error="abort">
+			<search position="after"><![CDATA[
+				$result = str_replace('\"', '"', $result);
+			]]></search>
+            <add trim="true"><![CDATA[
+				$result = str_replace(htmlentities("&lt;sup&gt;&#8482;&lt;/sup&gt;"), '', $result);
+				$result = str_replace(htmlentities("&lt;sup&gt;&#174;&lt;/sup&gt;"), '', $result);
+          	]]></add>
+        </operation>
+
+	</file>
+
+</modification>
