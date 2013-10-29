@@ -1,7 +1,7 @@
 <modification>
 
     <id>Widen Admin Product Search</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <vqmver>2.3.2</vqmver>
     <author>jimlind</author>
 
@@ -12,6 +12,14 @@
         	]]></search>
 			<add trim="true"><![CDATA[
         		$sql .= " AND pd.name LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
+        	]]></add>
+        </operation>
+		<operation error="abort">
+        	<search position="replace"><![CDATA[
+        		$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
+        	]]></search>
+			<add trim="true"><![CDATA[
+        		$sql .= " AND p.model LIKE '%" . $this->db->escape($data['filter_model']) . "%'";
         	]]></add>
         </operation>
 	</file>
